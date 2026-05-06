@@ -1,0 +1,8 @@
+CREATE OR REPLACE PROCEDURE add_order(
+  p_order_id NUMBER,
+  p_customer_id NUMBER,
+  p_amount NUMBER
+) AS
+BEGIN
+  INSERT INTO orders VALUES (p_order_id, p_customer_id, SYSDATE, p_amount);
+END;

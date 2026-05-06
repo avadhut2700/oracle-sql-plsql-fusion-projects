@@ -1,0 +1,8 @@
+CREATE OR REPLACE TRIGGER check_amount
+BEFORE INSERT ON orders
+FOR EACH ROW
+BEGIN
+  IF :NEW.amount <= 0 THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Amount must be greater than zero');
+  END IF;
+END;

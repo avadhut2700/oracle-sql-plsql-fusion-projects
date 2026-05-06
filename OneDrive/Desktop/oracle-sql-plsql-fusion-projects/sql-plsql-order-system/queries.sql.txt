@@ -1,0 +1,8 @@
+-- Total sales per customer
+SELECT c.name, SUM(o.amount) AS total_sales
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
+-- Orders above 5000
+SELECT * FROM orders WHERE amount > 5000;
