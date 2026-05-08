@@ -1,8 +1,12 @@
-CREATE OR REPLACE TRIGGER check_amount
-BEFORE INSERT ON orders
+CREATE OR REPLACE TRIGGER check_stock
+BEFORE INSERT ON order_items
 FOR EACH ROW
+DECLARE
+  v_stock NUMBER;
 BEGIN
-  IF :NEW.amount <= 0 THEN
-    RAISE_APPLICATION_ERROR(-20001, 'Amount must be greater than zero');
+  SELECT stock INTO v_stock FROM products WHERE product_id = :NEW.product_id;
+
+  IF v_stock < :NEW.quantity THEN
+    RAISE_APPLICATION_ERROR(-20002, 'Insufficient stock');
   END IF;
 END;
