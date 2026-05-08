@@ -1,18 +1,20 @@
-# SQL & PL/SQL Order Management System
+# E-Commerce Order & Payment Management System
 
 ## Description
-This project simulates an order management system using Oracle SQL and PL/SQL.
+This project simulates an e-commerce backend system using SQL and PL/SQL.
 
 ## Features
-- Table creation
-- Data insertion
-- Stored procedures
-- Triggers
-- Business queries
+- Order processing
+- Inventory management
+- Payment handling
+- Stock validation using trigger
 
-## Output
-- Sales reports
-- Order tracking
+## Components
+- Tables (customers, products, orders, order_items, payments)
+- Procedures (order creation, payment)
+- Trigger (stock validation)
+- Function (order total calculation)
+- Queries (reports)
 
-## Tools
-- Oracle SQL Developer
+## Outcome
+Demonstrates real-world database design and business logic similar to ERP systems.
