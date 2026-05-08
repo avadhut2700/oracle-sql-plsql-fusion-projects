@@ -1,8 +1,7 @@
-CREATE OR REPLACE PROCEDURE add_order(
+CREATE OR REPLACE PROCEDURE place_order(
   p_order_id NUMBER,
-  p_customer_id NUMBER,
-  p_amount NUMBER
+  p_customer_id NUMBER
 ) AS
 BEGIN
-  INSERT INTO orders VALUES (p_order_id, p_customer_id, SYSDATE, p_amount);
+  INSERT INTO orders VALUES (p_order_id, p_customer_id, SYSDATE, 'PENDING');
 END;
