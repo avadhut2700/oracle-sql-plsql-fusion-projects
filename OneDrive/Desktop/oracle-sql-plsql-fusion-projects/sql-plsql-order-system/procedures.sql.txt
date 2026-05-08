@@ -5,3 +5,22 @@ CREATE OR REPLACE PROCEDURE place_order(
 BEGIN
   INSERT INTO orders VALUES (p_order_id, p_customer_id, SYSDATE, 'PENDING');
 END;
+
+
+CREATE OR REPLACE PROCEDURE add_order_item(
+  p_item_id NUMBER,
+  p_order_id NUMBER,
+  p_product_id NUMBER,
+  p_qty NUMBER
+) AS
+  v_price NUMBER;
+BEGIN
+  SELECT price INTO v_price FROM products WHERE product_id = p_product_id;
+
+  INSERT INTO order_items
+  VALUES (p_item_id, p_order_id, p_product_id, p_qty, v_price * p_qty);
+
+  UPDATE products
+  SET stock = stock - p_qty
+  WHERE product_id = p_product_id;
+END;
