@@ -1,8 +1,12 @@
 -- Total sales per customer
-SELECT c.name, SUM(o.amount) AS total_sales
+SELECT c.name, SUM(oi.amount) total_spent
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
+JOIN order_items oi ON o.order_id = oi.order_id
 GROUP BY c.name;
 
--- Orders above 5000
-SELECT * FROM orders WHERE amount > 5000;
+-- Monthly sales
+SELECT TO_CHAR(order_date, 'MON') month, SUM(oi.amount)
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY TO_CHAR(order_date, 'MON');
