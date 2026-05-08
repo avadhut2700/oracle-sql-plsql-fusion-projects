@@ -6,7 +6,7 @@ BEGIN
   INSERT INTO orders VALUES (p_order_id, p_customer_id, SYSDATE, 'PENDING');
 END;
 
-
+----add order item
 CREATE OR REPLACE PROCEDURE add_order_item(
   p_item_id NUMBER,
   p_order_id NUMBER,
@@ -23,4 +23,21 @@ BEGIN
   UPDATE products
   SET stock = stock - p_qty
   WHERE product_id = p_product_id;
+END;
+
+----Payment
+CREATE OR REPLACE PROCEDURE make_payment(
+  p_payment_id NUMBER,
+  p_order_id NUMBER
+) AS
+  v_total NUMBER;
+BEGIN
+  v_total := get_order_total(p_order_id);
+
+  INSERT INTO payments
+  VALUES (p_payment_id, p_order_id, SYSDATE, v_total, 'SUCCESS');
+
+  UPDATE orders
+  SET status = 'COMPLETED'
+  WHERE order_id = p_order_id;
 END;
