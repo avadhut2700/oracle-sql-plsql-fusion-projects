@@ -1,8 +1,8 @@
-INSERT INTO customers VALUES (1, 'Rahul', 'Pune');
-INSERT INTO customers VALUES (2, 'Amit', 'Mumbai');
+INSERT INTO customers VALUES (1, 'Rahul', 'rahul@gmail.com', 'Pune');
+INSERT INTO customers VALUES (2, 'Amit', 'amit@gmail.com', 'Mumbai');
 
-INSERT INTO orders VALUES (101, 1, SYSDATE, 5000);
-INSERT INTO orders VALUES (102, 2, SYSDATE, 7000);
+INSERT INTO products VALUES (101, 'Laptop', 50000, 10);
+INSERT INTO products VALUES (102, 'Mobile', 20000, 20);
 
-INSERT INTO payments VALUES (1001, 101, SYSDATE, 5000);
-INSERT INTO payments VALUES (1002, 102, SYSDATE, 7000);
+INSERT INTO orders VALUES (1001, 1, SYSDATE, 'PENDING');
+INSERT INTO orders VALUES (1002, 2, SYSDATE, 'PENDING');
