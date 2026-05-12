@@ -1,0 +1,12 @@
+<DATA>
+  <CUSTOMER>
+    <ID>1</ID>
+    <NAME>Rahul</NAME>
+    <CITY>Pune</CITY>
+  </CUSTOMER>
+  <CUSTOMER>
+    <ID>2</ID>
+    <NAME>Amit</NAME>
+    <CITY>Mumbai</CITY>
+  </CUSTOMER>
+</DATA>
